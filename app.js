@@ -69,7 +69,19 @@ http.createServer(function(request, response) {
       if(err){
         console.error('에러 입니다.');
       } else {        
-        response.writeHead(200, {'Content-Type': 'image/jpeg'})
+        response.writeHead(200, {'Content-Type': 'image/jpg'})
+        response.end(data);
+      }
+    })
+  }
+
+  if(request.url === "/ggobugi") {
+    console.log(request.url);
+    fs.readFile("ggobugi.png",function(err,data){
+      if(err){
+        console.error('에러 입니다.');
+      } else {        
+        response.writeHead(200, {'Content-Type': 'image/png'})
         response.end(data);
       }
     })

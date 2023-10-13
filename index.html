@@ -13,6 +13,9 @@
     #root {
       background-image :url('http://localhost:5050/pokemonimage');
       background-size: contain;
+      /* background: no-repeat; */
+      width: 100vw;
+      height: 100vh;
     }
     #header {
       display: flex;
@@ -25,6 +28,11 @@
     }
     #main {
       height: 60vh;
+    }
+    #mouseclick, #teamlotto, #binggo {
+      width: 50px;
+      height: 50px;
+      background-color: antiquewhite;
     }
     #footer {
       height: 15vh;
@@ -46,9 +54,9 @@
       <label for = 'homebutton' >MAIN</label> -->
     </div>
     <div id = 'main'>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div id = 'mouseclick'></div>
+      <div id = 'binggo'></div>
+      <div id = 'teamlotto'></div>
     </div>
     <div id = 'footer'>
       <h2>😛💝사랑하는 김하현, 김하민 😍💖</h2>

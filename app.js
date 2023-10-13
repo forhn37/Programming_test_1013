@@ -62,4 +62,16 @@ http.createServer(function(request, response) {
       }
     })
   }
+
+  if(request.url === "/pokemonballimage") {
+    console.log(request.url);
+    fs.readFile("pokemonimage.jpg",function(err,data){
+      if(err){
+        console.error('에러 입니다.');
+      } else {        
+        response.writeHead(200, {'Content-Type': 'image/jpeg'})
+        response.end(data);
+      }
+    })
+  }
   }).listen(5050)

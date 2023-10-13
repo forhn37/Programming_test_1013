@@ -15,14 +15,15 @@ http.createServer(function(request, response) {
       })
   }
 
-  if(request.url === "/sub") {
+  if(request.url === "/mouseclick") {
     console.log(request.url);
-    fs.readFile("index.html",function(err,data){
+    fs.readFile("mouseclick.html",function(err,data){
       if(err){
         console.error('에러 입니다.');
       } else {        
         response.writeHead(200, {'Content-Type': 'text/html'})
         response.end(data);
       }
-    }
-    }).listen(5050)
+    })
+  }
+  }).listen(5050)

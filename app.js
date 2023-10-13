@@ -26,4 +26,28 @@ http.createServer(function(request, response) {
       }
     })
   }
+
+  if(request.url === "/binggo") {
+    console.log(request.url);
+    fs.readFile("binggo.html",function(err,data){
+      if(err){
+        console.error('에러 입니다.');
+      } else {        
+        response.writeHead(200, {'Content-Type': 'text/html'})
+        response.end(data);
+      }
+    })
+  }
+
+  if(request.url === "/teamlotto") {
+    console.log(request.url);
+    fs.readFile("teamlotto.html",function(err,data){
+      if(err){
+        console.error('에러 입니다.');
+      } else {        
+        response.writeHead(200, {'Content-Type': 'text/html'})
+        response.end(data);
+      }
+    })
+  }
   }).listen(5050)

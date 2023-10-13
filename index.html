@@ -10,6 +10,11 @@
       margin: 0;
       box-sizing: border-box;
     }
+    #root {
+      background-image: url(backgroundimagepokemon.jpg);
+      background-size:cover;
+
+    }
     #header {
       display: flex;
       align-items: center;
@@ -19,12 +24,18 @@
     h1 {
       font-size: 80px;
     }
-    #homebutton {
-      width: 120px;
-      height: 60px;
-      margin-left: 50px;
-      font-size: 30px;
-      color: black;
+    #main {
+      height: 60vh;
+    }
+    #footer {
+      height: 15vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    h2 {
+      font-size: 60px;
+      font-style:normal
     }
   </style>
 </head>
@@ -32,16 +43,16 @@
   <div id="root">
     <div id = 'header'>
       <h1>하현하민게임방</h1>
-      <button type = 'button' id = 'homebutton' onclick="location.href='localhost:5050' ">
-      <label for = 'homebutton' >MAIN</label>
+      <!-- <button type = 'button' id = 'homebutton' onclick="location.href='localhost:5050' ">
+      <label for = 'homebutton' >MAIN</label> -->
     </div>
     <div id = 'main'>
       <div></div>
       <div></div>
       <div></div>
     </div>
-    <div>
-      <ul>사랑하는 김하현, 김하민 😍💖</ul>
+    <div id = 'footer'>
+      <h2>사랑하는 김하현, 김하민 😍💖</h2>
     </div>
   </div>
 </body>

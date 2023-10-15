@@ -62,6 +62,18 @@ http.createServer(function(request, response) {
       }
     })
   }
+
+  if(request.url === "/pikachubg") {
+    console.log(request.url);
+    fs.readFile("pikachubg.jpg",function(err,data){
+      if(err){
+        console.error('에러 입니다.');
+      } else {        
+        response.writeHead(200, {'Content-Type': 'image/jpeg'})
+        response.end(data);
+      }
+    })
+  }
 // 이미지파일을 사용해야하므로 이미지를 호스팅는 코드작성
 // path 모듈 사용
   const path = require('path');

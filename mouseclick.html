@@ -143,17 +143,15 @@ let scorehow = document.getElementById('scorehow').textContent;
 let score = 0;
 //abortcontroller()에서 서버로 올리는 경우 문제 발생 
 // 확인중 
-let stop = AbortController();
-playground.addEventListener('click', function() {
+let clicker = playground.addEventListener('click', function() {
   if(event.target !== playground) {
+    if (document.getElementById('timehow').textContent !== '종료!') {
       event.target.remove(); 
       create(1);
       score++;
       document.getElementById('scorehow').textContent = score;
       console.log(document.getElementById('scorehow').textContent)
     // 삭제가 되지 않는 조건
-    if (document.getElementById('timehow').textContent === '종료') {
-      stop.abort();
     }
   }  
 }  

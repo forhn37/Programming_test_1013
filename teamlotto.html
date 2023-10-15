@@ -10,25 +10,107 @@
       margin: 0px;
       box-sizing: border-box;
     }
+    #root {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
     #main {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
-      width: 900px;
+      width: 1400px;
+      height: 600px;
+      margin-top: 150px;
     }
-    
+    #main div {
+      width: 300px;
+      height: 300px;
+      background-repeat: no-repeat;
+    }
+    h1 {
+      margin-top: 130px;
+      font-size: 100px;
+    }
   </style>
 </head>
 <body>
   <div id="root">
     <h1>최강의 포켓몬 팀은 누구?</h1>
     <div id  = 'main'>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div id ='firstmember'></div>
+      <div id ='secondmember'></div>
+      <div id ='thirdmember'></div>
+      <div id ='fourthmember'></div>
+      <div id ='fifthmember'></div>
     </div>
   </div>
+  <script>
+    // 포켓몬 배열 등록
+    let pokemon = [
+            "000001 ",
+            "000401",
+            "000701",
+            "001201",
+            "001901", 
+            "002301", 
+            "002501", 
+            "002601", 
+            "003501", 
+            "003701", 
+            "003702", 
+            "003901", 
+            "005201", 
+            "005401", 
+            "005801", 
+            "006201", 
+            "006301", 
+            "006601", 
+            "006901", 
+            "007601", 
+            "007701", 
+            "008001", 
+            "009901", 
+            "010801", 
+            "011601", 
+            "012901", 
+            "013201", 
+            "013301", 
+            "014901", 
+            "015101", 
+            "018101", 
+            "020201", 
+            "045301", 
+            "054901", 
+            "061901", 
+            "065301", 
+            "072501",
+          ]
+    // 주요 dom 변수 선언
+    let main = document.getElementById('main');
+    let firstmember = document.getElementById('firstmember');
+    let secondmember = document.getElementById('secondmember')
+    let thirdmember = document.getElementById('thirdmember')
+    let fourthmember = document.getElementById('fourthmember')
+    let fifthmember = document.getElementById('fifthmember')
+    // 랜덤함수 작성
+    function random() {
+      return Math.floor(Math.random() * pokemon.length-1) + 1
+    }
+    // 배경이미지 랜덤함수를 통해 인덱스 값으로 입력
+    firstmember.style.backgroundImage = `url(http://localhost:5050/${pokemon[random()]})`;
+    firstmember.style.backgroundSize = 'contain';
+    secondmember.style.backgroundImage = `url(http://localhost:5050/${pokemon[random()]})`;
+    secondmember.style.backgroundSize = 'contain';
+    thirdmember.style.backgroundImage = `url(http://localhost:5050/${pokemon[random()]})`;
+    thirdmember.style.backgroundSize = 'contain';
+    fourthmember.style.backgroundImage = `url(http://localhost:5050/${pokemon[random()]})`;
+    fourthmember.style.backgroundSize = 'contain'
+    fifthmember.style.backgroundImage = `url(http://localhost:5050/${pokemon[random()]})`;
+    fifthmember.style.backgroundSize = 'contain';
+    
+
+  </script>
 </body>
 </html>

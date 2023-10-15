@@ -50,7 +50,7 @@
         position: relative;
         
     }
-    #ul img {
+    #ul li {
         width: 100px;
         height: 100px;
     }
@@ -72,65 +72,66 @@
         </div>
     </div>
     <script>
-        // let pokemon = [
-        //     "pokemonimage/000101.png",
-        //     "pokemonimage/000401.png",
-        //     "pokemonimage/000701.png",
-        //     "pokemonimage/001201.png",
-        //     "pokemonimage/001901.png", 
-        //     "pokemonimage/002301.png", 
-        //     "pokemonimage/002501.png", 
-        //     "pokemonimage/002601.png", 
-        //     "pokemonimage/003501.png", 
-        //     "pokemonimage/003701.png", 
-        //     "pokemonimage/003702.png", 
-        //     "pokemonimage/003901.png", 
-        //     "pokemonimage/005201.png", 
-        //     "pokemonimage/005401.png", 
-        //     "pokemonimage/005801.png", 
-        //     "pokemonimage/006201.png", 
-        //     "pokemonimage/006301.png", 
-        //     "pokemonimage/006601.png", 
-        //     "pokemonimage/006901.png", 
-        //     "pokemonimage/007601.png", 
-        //     "pokemonimage/007701.png", 
-        //     "pokemonimage/008001.png", 
-        //     "pokemonimage/009901.png", 
-        //     "pokemonimage/010801.png", 
-        //     "pokemonimage/011601.png", 
-        //     "pokemonimage/012901.png", 
-        //     "pokemonimage/013201.png", 
-        //     "pokemonimage/013301.png", 
-        //     "pokemonimage/014901.png", 
-        //     "pokemonimage/015101.png", 
-        //     "pokemonimage/018101.png", 
-        //     "pokemonimage/020201.png", 
-        //     "pokemonimage/045301.png", 
-        //     "pokemonimage/054901.png", 
-        //     "pokemonimage/061901.png", 
-        //     "pokemonimage/065301.png", 
-        //     "pokemonimage/072501.png",
-        // ]
-        // console.log(pokemon)
-        
-        let ul = document.getElementById("ul")
-        let imgsrc = document.getElementsByTagName("img")
-        
+        let pokemon = [
+            "000001 ",
+            "000401",
+            "000701",
+            "001201",
+            "001901", 
+            "002301", 
+            "002501", 
+            "002601", 
+            "003501", 
+            "003701", 
+            "003702", 
+            "003901", 
+            "005201", 
+            "005401", 
+            "005801", 
+            "006201", 
+            "006301", 
+            "006601", 
+            "006901", 
+            "007601", 
+            "007701", 
+            "008001", 
+            "009901", 
+            "010801", 
+            "011601", 
+            "012901", 
+            "013201", 
+            "013301", 
+            "014901", 
+            "015101", 
+            "018101", 
+            "020201", 
+            "045301", 
+            "054901", 
+            "061901", 
+            "065301", 
+            "072501",
+        ]
+        console.log(pokemon)
+
+        let ul = document.getElementById("ul");
         // li 생성함수 작성
         for(let i=0; i<16; i++) {
-        let img = document.createElement("img")
-        ul.appendChild(img)
-        imgsrc[i].style.width = '100px'
-        img.src = url(./pokemon[i]);
+        let li = document.createElement("li");
+        ul.appendChild(li);
+        // let lilist = document.querySelector('li');
+        // console.log(lilist);
+        li.style.width = '100px'
+        li.style.height = '100px'
+        li.style.backgroundImage = `url(http://localhost:5050/${pokemon[i]})`
+        li.style.backgroundSize = 'contain'
         }
 
         // ? 함수작성시 포켓몬배열의 인덱스가 랜덤으로 지정되는 함수 작성- 미해결
 
-        function getrandom() {
+        let getrandom = function () {
             return Math.floor(Math.random() * pokemon.length-1)+1
         }
 
-        document.write(getrandom())
         // 클릭시 빨간원으로 체크되는 함수 작성
         
         for(let i=0; i<16; i++) {

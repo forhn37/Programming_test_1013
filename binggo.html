@@ -50,11 +50,15 @@
         flex-wrap: wrap;
         position: relative;
         
+        
     }
     #ul li {
         width: 100px;
         height: 100px;
         border-style: inset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
 </style>
@@ -110,39 +114,35 @@
             "061901", 
             "065301", 
             "072501",
-        ]
-        console.log(pokemon)
-
-        let ul = document.getElementById("ul");
-        // li 생성함수 작성
-        for(let i=0; i<16; i++) {
-        let li = document.createElement("li");
-        ul.appendChild(li);
-        // let lilist = document.querySelector('li');
-        // console.log(lilist);
-        li.style.width = '100px'
-        li.style.height = '100px'
-        li.style.backgroundImage = `url(http://localhost:5050/${pokemon[i]})`
-        li.style.backgroundSize = 'contain'
-        }
-
-        // ? 함수작성시 포켓몬배열의 인덱스가 랜덤으로 지정되는 함수 작성- 미해결
-
-        let getrandom = function () {
-            return Math.floor(Math.random() * pokemon.length-1)+1
-        }
-
-        // 클릭시 빨간원으로 체크되는 함수 작성
+          ]
+          console.log(pokemon)
+          
+          // ? 함수작성시 포켓몬배열의 인덱스가 랜덤으로 지정되는 함수 작성- 미해결
+  
+          let getrandom = function () {
+              return Math.floor(Math.random() * pokemon.length-1)+1
+          }
+          let ul = document.getElementById("ul");
+          // li 생성함수 작성
+          for(let i=0; i<16; i++) {
+            let li = document.createElement("li");
+            ul.appendChild(li);
+            // let lilist = document.querySelector('li');
+            // console.log(lilist);
+            li.style.width = '100px'
+            li.style.height = '100px'
+            li.style.backgroundImage = `url(http://localhost:5050/${pokemon[getrandom()]})`
+            li.style.backgroundSize = 'contain'
+          }
+          
+          
+          // 클릭시 빨간원으로 체크되는 함수 작성
         
         for(let i=0; i<16; i++) {
         ul.addEventListener('click',function(event) {
-            event.target.textContent = 'o'
-            event.target.style.fontSize = "100px"
-            // eventtarget.currentTarget.textContent = "o";
-            // eventtarget.currentTarget.style.fontSize = "60px"
-            // eventtarget.currentTarget.style.color = "white"
-            // eventtarget.currentTarget.style.zIndex = "20"
-            console.log(eventtarget)
+            event.target.innerText = 'O'
+            event.target.style.fontSize = "100px";
+            event.target.style.color = "red";
         })
         }
         

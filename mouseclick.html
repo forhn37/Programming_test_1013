@@ -1,11 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #root {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: aliceblue;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #playground {
+      width: 800px;
+      height: 800px;
+      background-color: aliceblue;
+      position: relative;
+      border-style:solid;
+    }
+/* flex-direction : column 적용시 주축이 바뀌므로 위아래 정렬은 justify-content로 바뀜 */
+    #consolebox {
+      width: 300px;
+      height: 800px;
+      background-color: aliceblue;
+      display: flex;
+      flex-direction: column;
+      margin-left: 40px;
+      justify-content: end;
+    }
+
+    #time {
+      width: 300px;
+      height: 70px;
+      margin-top: 10px;
+      background-color: palevioletred;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #time > ul {
+      color: whitesmoke;
+      font-size: 20px;
+      width: 150px;
+      text-align: center;
+    }
+    #score {
+      width: 300px;
+      height: 70px;
+      margin-top: 10px;
+      background-color: palevioletred;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    #score > ul {
+      color: whitesmoke;
+      font-size: 20px;
+    }
+
+    #playbutton {
+      width: 300px;
+      height: 300px;
+      margin-top: 10px;
+      background-color: #f66;
+      border-radius: 50px;
+      border-style: hidden;
+    }
+    #playbutton {
+      color: whitesmoke;
+      font-size: 50px;
+    }
+
+    /* 기초 css 작성 */
+  </style>
 </head>
+
 <body>
-  마우스클릭게임입니다.
+  <div id="root">
+    <div id="playground"></div>
+    <div id="consolebox">
+      <!-- 두번째 ul태그에 감소하는 타이머 작성 -->
+      <div id="time">
+        <ul>제한시간</ul>
+        <ul id ='timehow'></ul>
+      </div>
+      <!-- 두번째 ul태그에 score라는 곳에 넣은 점수 작성 -->
+      <div id="score">
+        <ul>점수</ul>
+        <ul id ="scorehow"></ul>
+      </div>
+      <!-- addeventListner를 통하여 클릭시 3개의 li태그 생성 -->
+      <input type="button" value='Play!' id='playbutton'>
+    </div>
+  </div>
+  <script>
+    // time이라는 변수 작성
+    let time = document.getElementById('time')
+    // playground라는 변수 작성
+    let playground = document.getElementById('playground')
+    // random함수를 전역변수로 작성
+    // 최대값은 800안에 크기가 30인 dot이므로 최대값은 770-30/ 최소값은 30임
+    function random() {
+      return Math.floor(Math.random() * (770 - 30)) + 30;
+    }
+    // crate라는 함수를 작성하여 다음에도 li태그를 생성하는 함수를 작성
+    function create(num) {
+      for (let i = 0; i < num; i++) {
+        let litag = document.createElement('li');
+        playground.appendChild(litag)
+        // litag의 style 설정
+        litag.style.backgroundColor = "black";
+        litag.style.width = "30px";
+        litag.style.height = "30px";
+        // console.dir(playground)
+
+        // position설정
+        litag.style.position = "absolute"
+        // top, left값을 랜덤으로 변수에 대입
+        // 본 내용중 가장 중요한 것은 random으로 함수를 불러올 경우 함수를 호출하는 것이기 때문에 각각 다른 값을 불러오게 됨 가장중요한 부분임
+        litag.style.top = `${random()}px`
+        litag.style.left = `${random()}px`
+      }
+    }
+// 3개의 dot를 호출
+create(3);
+
+// 함수 클릭시 score++(1씩증가)하고 score가 scorehow.textcontent에 들어감
+let timehow = document.getElementById('timehow').textContent;
+let scorehow = document.getElementById('scorehow').textContent;
+// click이벤트 발생시 event.target을 제거하나 playground 이하 모든 태그가 삭제됨으로 if문으로 playground를 삭제되지 않도록 조건을 설정함
+let score = 0;
+let stop = AbortController();
+playground.addEventListener('click', function() {
+  if(event.target !== playground) {
+      event.target.remove(); 
+      create(1);
+      score++;
+      document.getElementById('scorehow').textContent = score;
+      console.log(document.getElementById('scorehow').textContent)
+    // 삭제가 되지 않는 조건
+    if (document.getElementById('timehow').textContent === '종료') {
+      stop.abort();
+    }
+  }  
+}  
+)
+  // 1초마다 timehow의 innerHTML에 '초'를 붙인 값을 입력하는 함수 작성 
+    function limittime(num) { setInterval(function() {
+      num--;
+      document.getElementById('timehow').textContent = num +'초';
+      if( num < 1 ) {
+        document.getElementById('timehow').textContent = '종료!';
+        clearInterval(limittime);
+      };
+    }, 1000);
+    }
+let playbutton = document.getElementById('playbutton');
+playbutton.addEventListener('click', function() {
+  score = 0;
+  limittime(10);
+});
+  </script>
 </body>
 </html>

@@ -54,10 +54,9 @@
     #ul li {
         width: 100px;
         height: 100px;
-    }
-    img {
         border-style: inset;
     }
+
 </style>
 <body>
     <div id="root">
@@ -136,8 +135,9 @@
         // 클릭시 빨간원으로 체크되는 함수 작성
         
         for(let i=0; i<16; i++) {
-        imgsrc[i].addEventListener('click',function(eventtarget) {
-            eventtarget.currentTarget.style.backgroundColor = 'red'
+        ul.addEventListener('click',function(event) {
+            event.target.textContent = 'o'
+            event.target.style.fontSize = "100px"
             // eventtarget.currentTarget.textContent = "o";
             // eventtarget.currentTarget.style.fontSize = "60px"
             // eventtarget.currentTarget.style.color = "white"

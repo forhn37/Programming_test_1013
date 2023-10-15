@@ -120,12 +120,16 @@
           // ? 함수작성시 포켓몬배열의 인덱스가 랜덤으로 지정되는 함수 작성- 미해결
           // 랜덤섞기 함수 작성
           let arr = [];
-          for(let i=0; i<16; i++) {
-            if(i % 2 === 1)
-            let count = Math.floor(Math.random() * pokemon.length-1)+1 
-            arr[arr.length] = count;
+          for(let i=0; i<8; i++) {
+            let randomnumber = Math.floor(Math.random() * pokemon.length-1)+1
+            if(arr[i] !== randomnumber) {
+              arr[arr.length] = randomnumber;
+            } else {
+              break;
+            }
           }
           console.log(arr);
+
           let ul = document.getElementById("ul");
           // li 생성함수 작성
           for(let i=0; i<16; i++) {

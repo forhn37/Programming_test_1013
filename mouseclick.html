@@ -150,17 +150,20 @@ let clicker = playground.addEventListener('click', function() {
       create(1);
       score++;
       document.getElementById('scorehow').textContent = score;
-      console.log(document.getElementById('scorehow').textContent)
+      console.log(document.getElementById('scorehow').textContent);
+      return;
+      
     // 이벤트리스너 중복 문제 발생
     }
   }  
 }  
 )
+console.log(clicker);
   // 1초마다 timehow의 innerHTML에 '초'를 붙인 값을 입력하는 함수 작성 
     function limittime(num) { setInterval(function() {
       num--;
       document.getElementById('timehow').textContent = num +'초';
-      if( num < 1 ) {
+      if( num <= 0 ) {
         document.getElementById('timehow').textContent = '종료!';
         clearInterval(limittime);
       };

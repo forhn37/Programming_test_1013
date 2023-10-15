@@ -118,10 +118,17 @@
           console.log(pokemon)
           
           // ? 함수작성시 포켓몬배열의 인덱스가 랜덤으로 지정되는 함수 작성- 미해결
-  
-          let getrandom = function () {
-              return Math.floor(Math.random() * pokemon.length-1)+1
+          
+          // 랜덤섞기 함수 작성
+          let arr = [];
+          for(i=0; i<arr.length; i++) {
+            if(arr.find(arr[i]) !== arr) {
+            arr[arr.length] = Math.floor(Math.random() * pokemon.length-1)+1
           }
+        } 
+        console.log(arr);
+
+
           let ul = document.getElementById("ul");
           // li 생성함수 작성
           for(let i=0; i<16; i++) {
@@ -137,7 +144,6 @@
           
           
           // 클릭시 빨간원으로 체크되는 함수 작성
-        
         for(let i=0; i<16; i++) {
         ul.addEventListener('click',function(event) {
             event.target.innerText = 'O'
@@ -146,7 +152,6 @@
         })
         }
         
-        // 랜덤섞기 함수 작성
 
     </script>
 </body>

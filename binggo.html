@@ -119,10 +119,11 @@
           
           // ? 함수작성시 포켓몬배열의 인덱스가 랜덤으로 지정되는 함수 작성- 미해결
           // 랜덤섞기 함수 작성
-  
-          let getrandom = function () {
-              return Math.floor(Math.random() * pokemon.length-1)+1
+          let arr = [];
+          for(let i=0; i<8; i++) {
+          arr[arr.length] = Math.floor(Math.random() * pokemon.length-1)+1
           }
+          console.log(arr);
           let ul = document.getElementById("ul");
           // li 생성함수 작성
           for(let i=0; i<16; i++) {
@@ -132,7 +133,7 @@
             // console.log(lilist);
             li.style.width = '100px'
             li.style.height = '100px'
-            li.style.backgroundImage = `url(http://localhost:5050/${pokemon[getrandom()]})`
+            // li.style.backgroundImage = `url(http://localhost:5050/${pokemon[g)`
             li.style.backgroundSize = 'contain'
           }
           

@@ -65,14 +65,14 @@
 <body>
     <div id="root">
         <div id = "header">
-            <input type = "button" id="random" value="랜덤섞기">
+            <input type = "button" id="random" value="START">
         </div>
         <div id = "main">
             <ul id = "ul">
             </ul>
         </div>
         <div id = "footer">
-            <input type ="button" id="binggo" value ="빙고!">
+            <input type ="button" id="binggo" value ="STOP!">
         </div>
     </div>
     <script>
@@ -121,8 +121,7 @@
           // 랜덤섞기 함수 작성
   
           let getrandom = function () {
-              let value = Math.floor(Math.random() * 8-1)+1
-              value *2
+              return Math.floor(Math.random() * pokemon.length-1)+1
           }
           let ul = document.getElementById("ul");
           // li 생성함수 작성

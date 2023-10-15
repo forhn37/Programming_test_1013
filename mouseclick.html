@@ -141,6 +141,8 @@ let timehow = document.getElementById('timehow').textContent;
 let scorehow = document.getElementById('scorehow').textContent;
 // click이벤트 발생시 event.target을 제거하나 playground 이하 모든 태그가 삭제됨으로 if문으로 playground를 삭제되지 않도록 조건을 설정함
 let score = 0;
+//abortcontroller()에서 서버로 올리는 경우 문제 발생 
+// 확인중 
 let stop = AbortController();
 playground.addEventListener('click', function() {
   if(event.target !== playground) {

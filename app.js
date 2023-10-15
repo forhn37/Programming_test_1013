@@ -62,7 +62,7 @@ http.createServer(function(request, response) {
       }
     })
   }
-
+// 파일을 읽는 경로 생성 및 이미지 호스팅
   const path = require('path');
   let arr =[];
   fs.readdir("./pokemon", function(err, filelist) {

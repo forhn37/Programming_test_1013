@@ -1,11 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
+<style>
+    * {
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    #root {
+        display: flex;
+        flex-direction: column;
+    }
+    #header {
+        height: 25vh;
+        width: 100vw;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+    }
+    #main {
+        height: 50vh;
+        width: 100vw;
+        background-color:gray;
+    }
+    #footer {
+        height: 25vh;
+        width: 100vw;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+    }
+    #random {
+        height: 80px;
+        width: 80px;
+    }
+    #binggo {
+        height: 80px;
+        width: 80px;
+    }
+    #ul {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        
+    }
+    #ul img {
+        width: 20vw;
+        height: 25vw;
+    }
+    img {
+        border-style: inset;
+    }
+</style>
 <body>
-  빙고게임입니다. 
+    <div id="root">
+        <div id = "header">
+            <input type = "button" id="random" value="랜덤섞기">
+        </div>
+        <div id = "main">
+            <ul id = "ul">
+            </ul>
+        </div>
+        <div id = "footer">
+            <input type ="button" id="binggo" value ="빙고!">
+        </div>
+    </div>
+    <script>
+        let pokemon = [
+            "pokemonimage/000101.png",
+            "pokemonimage/000401.png",
+            "pokemonimage/000701.png",
+            "pokemonimage/001201.png",
+            "pokemonimage/001901.png", 
+            "pokemonimage/002301.png", 
+            "pokemonimage/002501.png", 
+            "pokemonimage/002601.png", 
+            "pokemonimage/003501.png", 
+            "pokemonimage/003701.png", 
+            "pokemonimage/003702.png", 
+            "pokemonimage/003901.png", 
+            "pokemonimage/005201.png", 
+            "pokemonimage/005401.png", 
+            "pokemonimage/005801.png", 
+            "pokemonimage/006201.png", 
+            "pokemonimage/006301.png", 
+            "pokemonimage/006601.png", 
+            "pokemonimage/006901.png", 
+            "pokemonimage/007601.png", 
+            "pokemonimage/007701.png", 
+            "pokemonimage/008001.png", 
+            "pokemonimage/009901.png", 
+            "pokemonimage/010801.png", 
+            "pokemonimage/011601.png", 
+            "pokemonimage/012901.png", 
+            "pokemonimage/013201.png", 
+            "pokemonimage/013301.png", 
+            "pokemonimage/014901.png", 
+            "pokemonimage/015101.png", 
+            "pokemonimage/018101.png", 
+            "pokemonimage/020201.png", 
+            "pokemonimage/045301.png", 
+            "pokemonimage/054901.png", 
+            "pokemonimage/061901.png", 
+            "pokemonimage/065301.png", 
+            "pokemonimage/072501.png",
+        ]
+        console.log(pokemon)
+        
+        let ul = document.getElementById("ul")
+        let imgsrc = document.getElementsByTagName("img")
+        
+        // li 생성함수 작성
+        for(let i=0; i<16; i++) {
+        let img = document.createElement("img")
+        ul.appendChild(img)
+        imgsrc[i].style.width = '25vw'
+        img.src = pokemonimage[i];
+        }
+
+        // ? 함수작성시 포켓몬배열의 인덱스가 랜덤으로 지정되는 함수 작성- 미해결
+
+        function getrandom() {
+            return Math.floor(Math.random() * pokemonimage.length-1)+1
+        }
+
+        document.write(getrandom())
+        // 클릭시 빨간원으로 체크되는 함수 작성
+        
+        for(let i=0; i<16; i++) {
+        imgsrc[i].addEventListener('click',function(eventtarget) {
+            eventtarget.currentTarget.style.backgroundColor = 'red'
+            // eventtarget.currentTarget.textContent = "o";
+            // eventtarget.currentTarget.style.fontSize = "60px"
+            // eventtarget.currentTarget.style.color = "white"
+            // eventtarget.currentTarget.style.zIndex = "20"
+            console.log(eventtarget)
+        })
+        }
+        
+        // 랜덤섞기 함수 작성
+
+    </script>
 </body>
 </html>

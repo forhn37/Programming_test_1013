@@ -92,10 +92,10 @@ http.createServer(function(request, response) {
       // url부분의 /다음에 넣어줄 title을 확인하기 위하여 .png 확장자를 제외한 부분을 pathparse에 넣어줌
       let pathparse = path.basename(arr[i], ".png");
       // 파일명 잘 들어오는지 확인
-      console.log(pathparse);
+      // console.log(pathparse);
       // title은 파일명
       if(request.url === `/${pathparse}`) {
-          console.log(request.url);
+          // console.log(request.url);
           // 배열의 순서를 읽어옴
           fs.readFile(`./pokemon/${arr[i]}` ,function(err,data){
               if(err){

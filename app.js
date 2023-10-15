@@ -65,7 +65,7 @@ http.createServer(function(request, response) {
 
   if(request.url === "/ggobugi") {
     console.log(request.url);
-    fs.readFile("ggobugi.jpg",function(err,data){
+    fs.readFile("./pokemon/ggobugi",function(err,data){
       if(err){
         console.error('에러 입니다.');
       } else {        

@@ -131,10 +131,11 @@
     fifthmember.style.backgroundImage = `url(http://localhost:5050/${pokemon[random()]})`;
     fifthmember.style.backgroundSize = 'contain';
     }
+    // 랜덤으로 불러오는 함수 호출
     clicker();
-
+    // button 변수 선언
     let button = document.getElementById('button');
-
+    // button 클릭시 클리커 실행 함수 작성
     button.addEventListener('click',function() {
       clicker();
     });

@@ -141,7 +141,7 @@
               // console.log(lilist);
             li.style.width = '250px'
             li.style.height = '250px'
-            let randomnumber = Math.floor(Math.random() * pokemon.length-1)+1
+            let randomnumber = Math.floor(Math.random() * pokemon.length-1)+1;
             li.style.backgroundImage =`url(http://localhost:5050/${pokemon[randomnumber]})`
             li.style.backgroundSize = 'contain'
         }
@@ -161,15 +161,6 @@
         let start = document.getElementById('start');
 
         console.dir(ul);
-        start.addEventListener('click' , function() {
-            for(let i=0; i<16; i++) {
-            let randomnumber = Math.floor(Math.random() * pokemon.length-1)+1;
-            ul.children[i].style.backgroundImage = `url(http://localhost:5050/${pokemon[randomnumber]})`;
-            ul.children[i].textContent = "";
-            }
-        })
-        
-        let timehow = document.getElementById('timehow')
         function limittime(num) { 
             let setting = setInterval(function() {
             num--;
@@ -180,6 +171,16 @@
         };
         }, 1000);
         }
+        start.addEventListener('click' , function() {
+            for(let i=0; i<16; i++) {
+            let randomnumber = Math.floor(Math.random() * pokemon.length-1)+1;
+            ul.children[i].style.backgroundImage = `url(http://localhost:5050/${pokemon[randomnumber]})`;
+            ul.children[i].textContent = "";
+            limittime(10);
+            }
+        })
+        
+        let timehow = document.getElementById('timehow')
     
     </script>
 </body>

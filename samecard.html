@@ -131,12 +131,17 @@
               // console.log(lilist);
             li.style.width = '100px'
             li.style.height = '100px'
+        }
+    }
+        function random(count) {
+        for(let i=0; i<count; i++) {
             let randomnumber = Math.floor(Math.random() * pokemon.length-1)+1
             li.style.backgroundImage =`url(http://localhost:5050/${pokemon[randomnumber]})`
             li.style.backgroundSize = 'contain'
         }
     }
         create(16);
+        random(16);
         
         
         
@@ -156,7 +161,7 @@
         let start = document.getElementById('start');
 
         start.addEventListener('click' , function() {
-            create.remove()
+            creremove()
             create(16);
         })
         

@@ -44,6 +44,11 @@
       color:firebrick;
       font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
+    #button {
+      font-size: 20px;
+      width: 100px;
+      height: 50px;
+    }
     
   </style>
 </head>
@@ -57,7 +62,7 @@
       <div id ='fourthmember'></div>
       <div id ='fifthmember'></div>
     </div>
-    <button type = 'button' id = 'button'>
+    <input type = 'button' id = 'button'>
     <label for = 'button' value = '클릭해주세요!'></label>
   </div>
   <script>
@@ -113,6 +118,7 @@
       return Math.floor(Math.random() * pokemon.length-1) + 1
     }
     // 배경이미지 랜덤함수를 통해 인덱스 값으로 입력
+    function clicker() {
     firstmember.style.backgroundImage = `url(http://localhost:5050/${pokemon[random()]})`;
     firstmember.style.backgroundSize = 'contain';
     secondmember.style.backgroundImage = `url(http://localhost:5050/${pokemon[random()]})`;
@@ -123,7 +129,8 @@
     fourthmember.style.backgroundSize = 'contain'
     fifthmember.style.backgroundImage = `url(http://localhost:5050/${pokemon[random()]})`;
     fifthmember.style.backgroundSize = 'contain';
-    
+    }
+    clicker();
 
   </script>
 </body>

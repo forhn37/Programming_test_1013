@@ -27,9 +27,9 @@ http.createServer(function(request, response) {
     })
   }
 
-  if(request.url === "/binggo") {
+  if(request.url === "/samecard") {
     console.log(request.url);
-    fs.readFile("binggo.html",function(err,data){
+    fs.readFile("samecard.html",function(err,data){
       if(err){
         console.error('에러 입니다.');
       } else {        

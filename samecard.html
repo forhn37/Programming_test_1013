@@ -154,10 +154,8 @@
         let start = document.getElementById('start');
 
         for(let i=0; i<16; i++) {
-        ul.addEventListener('click',function(event) {
-            event.target.innerText = 'O'
-            event.target.style.fontSize = "100px";
-            event.target.style.color = "red";
+        start.addEventListener('click',function(event) {
+            create();
         })
         }
         

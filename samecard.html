@@ -135,7 +135,9 @@
             li.style.backgroundImage =`url(http://localhost:5050/${pokemon[randomnumber]})`
             li.style.backgroundSize = 'contain'
         }
-        }
+    }
+        create(16);
+        
         
         
         
@@ -153,7 +155,8 @@
         // start변수 선언
         let start = document.getElementById('start');
 
-        start.addEventListener('click',function() {
+        start.addEventListener('click' , function() {
+            create.remove()
             create(16);
         })
         

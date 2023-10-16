@@ -126,8 +126,6 @@
             "072501",
           ]
         console.log(pokemon)
-        
-          // ? 함수작성시 포켓몬배열의 인덱스가 랜덤으로 지정되는 함수 작성- 미해결
           // 랜덤섞기 함수 작성
         let ul = document.getElementById("ul");
           // li 생성함수 작성
@@ -135,16 +133,17 @@
         for(let i=0; i<num; i++) {
             let li = document.createElement("li");
             ul.appendChild(li);
-              // let lilist = document.querySelector('li');
-              // console.log(lilist);
+            // li의 css설정
             li.style.width = '250px'
             li.style.height = '250px'
+            // 랜덤으로 인덱스를 가져옴
             let randomnumber = Math.floor(Math.random() * pokemon.length-1)+1;
+            // 포켓몬의 이미지를 url로 설정하나 랜덤한 숫자를 pokemon의 인덱스를 가져옴
             li.style.backgroundImage =`url(http://localhost:5050/${pokemon[randomnumber]})`
             li.style.backgroundSize = 'contain'
         }
     }
-    // startbutton 클릭시 캐릭터의 이미지가 랜덤으로 다시 출력
+    // 16개의 li tag를 불러와 콜링
         create(16);
           // 클릭시 빨간원으로 체크되는 함수 작성
         for(let i=0; i<16; i++) {
@@ -159,27 +158,32 @@
         let start = document.getElementById('start');
 
         console.dir(ul);
+        // num의 숫자만큼 초마다 표시되고 0보다 작을시 '종료!'를 넣는 함수 작성 
         function limittime(num) { 
             let setting = setInterval(function() {
             num--;
             timehow.textContent = num +'초';
             if( num <= 0 ) {
             timehow.textContent = '종료!';
+            // 변수로 지정한 setinterval을 꼭 변수로 선언해 중지시켜줘야함
             clearInterval(setting);
         };
         }, 1000);
         }
+        // 제한시간이 들어가는 내용 변수 선언
+        let timehow = document.getElementById('timehow')
+        // start버튼 클릭시 배경의 이미지가 랜덤으로 들어감 중요한점은 li 태그가 다시 만들어지면 안됨
         start.addEventListener('click' , function() {
             for(let i=0; i<16; i++) {
             let randomnumber = Math.floor(Math.random() * pokemon.length-1)+1;
             ul.children[i].style.backgroundImage = `url(http://localhost:5050/${pokemon[randomnumber]})`;
+            // 빨간색 동그라미가 다시 없어지는 설정
             ul.children[i].textContent = "";
+            // 제한시간 시작 (현재 10초)
             limittime(10);
             }
         })
-        
-        let timehow = document.getElementById('timehow')
-    
+
     </script>
 </body>
 </html>

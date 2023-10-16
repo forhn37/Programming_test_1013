@@ -48,8 +48,6 @@
         display: flex;
         flex-wrap: wrap;
         position: relative;
-        
-        
     }
     #ul li {
         width: 250px;
@@ -59,12 +57,23 @@
         justify-content: center;
         align-items: center;
     }
+    #limittime  {
+        width: 100px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
 </style>
 <body>
     <div id="root">
         <div id = "header">
             <input type = "button" id="start" value="START!">
+                <div id = "limittime">
+                    <div id = "time">제한시간</div>
+                    <div id = "timehow">0</div>
+                </div>
         </div>
         <div id = "main">
             <ul id = "ul">
@@ -136,22 +145,16 @@
             li.style.backgroundSize = 'contain'
         }
     }
+    // startbutton 클릭시 캐릭터의 이미지가 랜덤으로 다시 출력
         create(16);
-        
-        
-        
-        
           // 클릭시 빨간원으로 체크되는 함수 작성
         for(let i=0; i<16; i++) {
         ul.addEventListener('click',function(event) {
             event.target.innerText = 'O'
             event.target.style.fontSize = "250px";
             event.target.style.color = "red";
-            
         })
         }
-
-        // startbutton 클릭시 캐릭터의 이미지가 랜덤으로 다시 출력
 
         // start변수 선언
         let start = document.getElementById('start');

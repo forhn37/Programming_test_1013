@@ -123,6 +123,7 @@
         
         let ul = document.getElementById("ul");
           // li 생성함수 작성
+        let create = function() {
         for(let i=0; i<16; i++) {
             let li = document.createElement("li");
             ul.appendChild(li);
@@ -134,10 +135,24 @@
             li.style.backgroundImage =`url(http://localhost:5050/${pokemon[randomnumber]})`
             li.style.backgroundSize = 'contain'
         }
+        }
         
         
         
           // 클릭시 빨간원으로 체크되는 함수 작성
+        for(let i=0; i<16; i++) {
+        ul.addEventListener('click',function(event) {
+            event.target.innerText = 'O'
+            event.target.style.fontSize = "100px";
+            event.target.style.color = "red";
+        })
+        }
+
+        // startbutton 클릭시 캐릭터의 이미지가 랜덤으로 다시 출력
+
+        // start변수 선언
+        let start = document.getElementById('start');
+
         for(let i=0; i<16; i++) {
         ul.addEventListener('click',function(event) {
             event.target.innerText = 'O'

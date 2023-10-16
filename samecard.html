@@ -155,9 +155,13 @@
         // start변수 선언
         let start = document.getElementById('start');
 
+        console.dir(ul);
         start.addEventListener('click' , function() {
-            let randomnumber = Math.floor(Math.random() * pokemon.length-1)+1
-            li.style.backgroundImage =`url(http://localhost:5050/${pokemon[randomnumber]})`
+            for(let i=0; i<ul.childNodes.length-1; i++){
+            ul.removeChild(ul.childNodes[i]);
+            }
+            create(16);
+            return;
         })
         
         

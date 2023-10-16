@@ -157,9 +157,7 @@
 
         console.dir(ul);
         start.addEventListener('click' , function() {
-            for(let i=0; i<ul.childNodes.length-1; i++){
-            ul.removeChild(ul.childNodes[i]);
-            }
+            ul.remove(ul.children);
             create(16);
             return;
         })

@@ -73,7 +73,7 @@
         <div id = "header">
             <input type = "button" id="start" value="START!">
                 <div id = "limittime">
-                    <div id = "time">제한시간 :</div>
+                    <div id = "time">제한시간:</div>
                     <div id = "timehow"></div>
                 </div>
         </div>
@@ -162,9 +162,9 @@
         function limittime(num) { 
             let setting = setInterval(function() {
             num--;
-            timehow.textContent = num +'초';
+            timehow.textContent = num +' 초';
             if( num <= 0 ) {
-            timehow.textContent = '종료!';
+            timehow.textContent = ' 종료!';
             // 변수로 지정한 setinterval을 꼭 변수로 선언해 중지시켜줘야함
             clearInterval(setting);
         };

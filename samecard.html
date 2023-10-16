@@ -123,8 +123,8 @@
         
         let ul = document.getElementById("ul");
           // li 생성함수 작성
-        let create = function() {
-        for(let i=0; i<16; i++) {
+        function create(num) {
+        for(let i=0; i<num; i++) {
             let li = document.createElement("li");
             ul.appendChild(li);
               // let lilist = document.querySelector('li');
@@ -153,11 +153,10 @@
         // start변수 선언
         let start = document.getElementById('start');
 
-        for(let i=0; i<16; i++) {
-        start.addEventListener('click',function(event) {
-            create();
+        start.addEventListener('click',function() {
+            create(16);
         })
-        }
+        
         
 
     </script>

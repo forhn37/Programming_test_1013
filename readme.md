@@ -1,3 +1,5 @@
+github repository address : https://github.com/forhn37/Programming_test_1013
+
 아이디어 기본안
 하현,하민이의 게임사이트를 만들기로 하였다. 게임은 3가지 (pokemonclick, binggogame, teamlotto)를 넣을 예정이며 아이들의 나이가 어려 쉽게 할 수 있도록 인터페이스를 제작할 예정이다. 또한, 본 서비스는 serving을 통해 localhost에서 작동 될 예정이므로, app.js파일은 서버가동 목적, 나머지는 3개의 게임은 html파일로 작성될 예정이다. 
 
